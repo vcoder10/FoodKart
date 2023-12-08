@@ -1,0 +1,20 @@
+.sort-by {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .sort-btn {
+    padding: 8px;
+    margin-right: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .sort-btn:hover {
+    background-color: #fc8019;
+  }

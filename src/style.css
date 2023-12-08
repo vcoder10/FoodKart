@@ -1,0 +1,450 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    background-color: #fc8019;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.logo {
+    padding: 5px;
+    width: 100px;
+}
+.app-name {
+    padding: 5px; 
+   
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: white; 
+    margin-right: 300px;
+    font-size: 30px;
+}
+
+
+input {
+    margin-top: 30px;
+    margin-left: 500px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+.nav-items {
+    padding: 0 10px;
+}
+
+.nav-items > ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-items > ul > li {
+    padding: 40px 10px 0 0;
+    font-size: large;
+    cursor: pointer;
+}
+*/
+
+/* new css adding for hedeer and profile */
+
+/* Add this to your styles.css or equivalent stylesheet */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    
+    background-color: #fc8019;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .logo {
+    padding: 5px;
+    width: 100px;
+  }
+  
+  .app-name {
+    padding: 5px; /* Adjust as needed */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: white; /* Text color */
+    margin-right: 300px;
+    font-size: 30px;
+  }
+  
+  input {
+    margin-top: 30px;
+    margin-left: 350px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .nav-items {
+    padding: 0 10px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-items > ul {
+    list-style-type: none;
+    display: flex;
+  }
+  
+  .nav-items > ul > li {
+    padding: 40px 10px 0 0;
+    font-size: large;
+    cursor: pointer;
+  }
+  
+  /* Added styles for login section */
+  .profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 25px;
+  }
+  
+  .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .toggle-button {
+    font-size: 20px;
+    color: #333;
+    transition: transform 0.3s;
+  }
+  
+  .toggle-button.active {
+    transform: rotateX(180deg);
+  }
+  
+  .options {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .option {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .option:hover {
+    background-color: #f5f5f5;
+  }
+  
+/* Add this to your styles.css or equivalent stylesheet 
+
+.login {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .options {
+    position: absolute;
+    top: 60px; 
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .option {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .option:hover {
+    background-color: #f5f5f5;
+  }*/
+  
+  /* Add more styles as needed */
+  
+/*Carousel*/
+
+
+/*resturant
+.filter-btn{
+    border: 2px solid black;
+    margin: 10px;
+    cursor: pointer;
+    background-color: white;
+    padding: 2px 2px 2px 2px;
+}
+.filter-btn:hover{
+   background-color: #fc8019;
+   
+    
+}*/
+.filter-btn {
+    padding: 8px;
+    margin-right: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .filter-btn:hover {
+    background-color: #fc8019;
+  }
+
+  
+.restaurant-list {
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: -1px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.card > img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card > div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card > div > h4 {
+    text-align: center;
+    word-break: keep-all;
+}
+
+.card > div > h4:first-child {
+    display: flex;
+    align-items: center;
+    background-color: rgb(19, 176, 1);
+    border-radius: 5px;
+    padding: 0 5px;
+    color: white;
+}
+
+.card > div > h4:first-child .fa-star {
+    font-size: small;
+    padding-right: 5px;
+}
+
+.footer {
+    margin: 10px;
+    text-align: center;
+    background-color: #fc8019;
+    padding: 20px 10px;
+    border-radius: 5px;
+}
+
+.footer > i {
+    padding: 0 5px;
+    font-size: smaller;
+}
+
+.fa-heart {
+    color: darkred;
+}
+
+.footer > strong {
+    padding-left: 5px;
+}
+
+.footer > strong > span {
+    color: rgb(203, 54, 0);
+}
+
+
+
+
+/* Select all CSS */
+/* *{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+} */
+
+/* Header CSS */
+/* .header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    width: auto;
+    background-color: #fc8019;
+    border-radius: 5px;
+    
+    color: black;
+    font-weight: bold;
+}
+
+
+.logo{
+    padding: 5px 5px 5px;
+   
+    width: 100px;
+}
+
+.nav-items{   
+    padding: 0 10px 0;
+    width: auto;
+}
+
+.nav-items > ul{
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-items > ul > li{
+    padding: 40px 10px 0 0;
+    font-size: large;
+    cursor: pointer;
+} */
+
+
+/* Body CSS */
+/* 
+.restaurant-list{
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.card{
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: -1px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+}
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  }
+
+.card > img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card > span{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card > span > h4{
+    text-align: center;
+    word-break:keep-all;
+}
+
+.card > span > h4:first-child{
+    display: flex;
+    align-items: center;
+    background-color: rgb(19, 176, 1);
+    border-radius: 5px;
+    padding: 0 5px 0;
+    color: white;
+}
+
+.card > span > h4:first-child .fa-star{
+    font-size: small;
+    padding: 0 5px 3px 0;
+}
+
+
+
+/* footer CSS *//*
+.footer{
+    margin: 10px;
+    width: auto;
+    text-align: center;
+    background-color:#fc8019;
+    padding: 20px 10px 20px;
+    border-radius: 5px;
+
+}
+
+.footer > i{
+    padding: 0 5px 0;
+    font-size: smaller;
+}
+
+.fa-heart{
+    color: darkred;
+}
+
+.footer > strong{
+    padding-left: 5px;
+}
+
+.footer > strong > span{
+    color: rgb(203, 54, 0)
+}
+
+.carousel-container {
+    max-width: 800px;
+    margin: 20px auto;
+} */

@@ -4,8 +4,8 @@
   "description": "",
   
   "scripts": {
-    "start": "parcel first.html",
-    "build": "parcel build first.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

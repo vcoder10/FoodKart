@@ -97,14 +97,15 @@
 
 
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
-import Login from './components/Login';
+//import Login from './components/Login';
 import Contact from './components/Contact';
 import About from './components/About';
+//import Error from './components/Error';
 
 const App = () => {
   const [searchText, setSearchText] = useState('');
@@ -115,18 +116,81 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        <Header onSearch={searchRestaurants} />
-        <Routes>
-          <Route path="/" element={<Body searchTextToBody={searchText} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <Header onSearch={searchRestaurants} />
+    <Routes>
+      <Route
+       exact path="/" 
+       element={<Body searchTextToBody={searchText} />}
+       
+      />
+      <Route
+       exact path="/about" 
+       element={<About />}
+      />
+      <Route
+       exact path="/contact" 
+       element={<Contact />}
+      />
+    </Routes>
+      
+    <Footer />
+  </Router>
+    
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// router code
+/**
+ * return (
+
+    <Router>
+      <Header onSearch={searchRestaurants} />
+      <Routes>
+        <Route
+         exact path="/" 
+         element={<Body searchTextToBody={searchText} />}
+         
+        />
+        <Route
+         exact path="/about" 
+         element={<About />}
+        />
+        <Route
+         exact path="/contact" 
+         element={<Contact />}
+        />
+      </Routes>
+        
+      <Footer />
+    </Router>
+  );
+ */
+
+  /**
+   * simple div
+   * <div>
+      <Header onSearch={searchRestaurants} />
+      <Body searchTextToBody={searchText} />
+      <Footer />
+    </div>
+   */
+
+
+
+

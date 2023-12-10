@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Title from './Title';
 import Login from './Login';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = ({ onSearch }) => {
   const [searchText, setSearchText] = useState('');
@@ -17,24 +17,24 @@ const Header = ({ onSearch }) => {
       <Title />
       <div className="app-name">FoodKart</div>
 
-      <div className="nav-items">
+       <div className="nav-items">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
-          <li>
+          {/*<li>
             <Link to="/cart">
               <i className="fa-solid fa-cart-shopping"></i>
             </Link>
-          </li>
+          </li>*/}
         </ul>
-      </div>
+      </div> 
 
       {/* Search input and button */}
       <div className="search">

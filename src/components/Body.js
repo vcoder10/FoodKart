@@ -4,7 +4,7 @@ import Filter from './Filter'; // Import the new component
 import SortBy from './SortBy'; // Import the new component
 import Shimmer from './Shimmer';
 
-const Body = ({  searchTextToBody }) => {
+const Body = ({ searchTextToBody }) => {
 
   const [originalResList , setOriginalResList] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -65,11 +65,12 @@ const Body = ({  searchTextToBody }) => {
       `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?${latNlong}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
       );
     const json = await data.json();
-    const restaurant= json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    const restaurant= json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
     setOriginalResList(restaurant);
     setFilteredRestaurants(restaurant);
-    //console.log(json);
+    console.log(restaurant);
+    console.log(json);
   }
 
   useEffect(() => {
@@ -82,9 +83,9 @@ const Body = ({  searchTextToBody }) => {
     );
     setFilteredRestaurants(searchedRes);
   };
-
-  return filteredRestaurants.length===0 ?
-      (<Shimmer/> ):
+  return  filteredRestaurants.length === 0 ? (
+    <Shimmer />
+  ) :
       (
         <div className='body'>
           <Filter

@@ -2,9 +2,10 @@
   "name": "namaste-react-code",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  
   "scripts": {
     "start": "parcel first.html",
+    "build": "parcel build first.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

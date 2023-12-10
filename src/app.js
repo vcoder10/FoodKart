@@ -1,15 +1,7 @@
 // import React from 'react';
 // import ReactDOM from 'react-dom/client';
 // import './style.css'
- /**
- * ? Heading
- * !    logo
- * !    nav-items
- * 
- * ? Body
- * 
- * ? Foote
- */
+ 
  /* My Food App structure will look like this, 
             1) Header
                 - Logo
@@ -102,30 +94,39 @@
 // root.render(<AppLayout />);
 
 
-// ## Namaste React Course by Akshay Saini
-// Chapter 04 - Talk is Cheap, show me the code
-
-import React from "react";
-import ReactDOM from "react-dom/client";
 
 
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
-//import Carousel from "./components/Carousel";
+import Login from './components/Login';
+import Contact from './components/Contact';
+import About from './components/About';
 
+const App = () => {
+  const [searchText, setSearchText] = useState('');
 
-// AppLayout component to show: Header, Body, Footer
-const AppLayout = () => {
+  const searchRestaurants = (text) => {
+    setSearchText(text);
+  };
+
   return (
-    <React.Fragment>
-      <Header />
-      {/*<Carousel/>*/}
-      <Body />
-      <Footer />
-    </React.Fragment>
+    <Router>
+      <div>
+        <Header onSearch={searchRestaurants} />
+        <Routes>
+          <Route path="/" element={<Body searchTextToBody={searchText} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);

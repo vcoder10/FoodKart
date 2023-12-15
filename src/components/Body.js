@@ -65,7 +65,7 @@ const Body = ({ searchTextToBody }) => {
       `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?${latNlong}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
       );
     const json = await data.json();
-    const restaurant= json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    const restaurant= json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
     setOriginalResList(restaurant);
     setFilteredRestaurants(restaurant);

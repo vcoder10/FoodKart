@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import RestaurantCard from './ResturantCard';
-import Filter from './Filter'; // Import the new component
-import SortBy from './SortBy'; // Import the new component
-import Shimmer from './Shimmer';
+import React, { useEffect, useState } from "react";
+import RestaurantCard from "./ResturantCard";
+import Filter from "./Filter"; // Import the new component
+import SortBy from "./SortBy"; // Import the new component
+import Shimmer from "./Shimmer";
 
-import useRestaurant  from '../utils/useRestaurant';
-
+import useRestaurant from "../utils/useRestaurant";
 
 const Body = ({ searchTextToBody }) => {
-
-  const originalResList  = useRestaurant();
+  const originalResList = useRestaurant();
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  
 
-  
   const applyFilter = (filterFunction) => {
     const filtered = originalResList.filter(filterFunction);
     //setFilteredRestaurants(filtered);
@@ -22,8 +18,12 @@ const Body = ({ searchTextToBody }) => {
 
   const sortLowToHigh = () => {
     const sorted = [...filteredRestaurants].sort((a, b) => {
-      const first = a.info?.costForTwo ? parseInt(a.info.costForTwo.replace(/\D/g, ''), 10) : 0;
-      const second = b.info?.costForTwo ? parseInt(b.info.costForTwo.replace(/\D/g, ''), 10) : 0;
+      const first = a.info?.costForTwo
+        ? parseInt(a.info.costForTwo.replace(/\D/g, ""), 10)
+        : 0;
+      const second = b.info?.costForTwo
+        ? parseInt(b.info.costForTwo.replace(/\D/g, ""), 10)
+        : 0;
       return first - second;
     });
     //setFilteredRestaurants(sorted);
@@ -32,8 +32,12 @@ const Body = ({ searchTextToBody }) => {
 
   const sortHighToLow = () => {
     const sorted = [...filteredRestaurants].sort((a, b) => {
-      const first = a.info?.costForTwo ? parseInt(a.info.costForTwo.replace(/\D/g, ''), 10) : 0;
-      const second = b.info?.costForTwo ? parseInt(b.info.costForTwo.replace(/\D/g, ''), 10) : 0;
+      const first = a.info?.costForTwo
+        ? parseInt(a.info.costForTwo.replace(/\D/g, ""), 10)
+        : 0;
+      const second = b.info?.costForTwo
+        ? parseInt(b.info.costForTwo.replace(/\D/g, ""), 10)
+        : 0;
       return second - first;
     });
     //setFilteredRestaurants(sorted);
@@ -60,31 +64,11 @@ const Body = ({ searchTextToBody }) => {
     return !restaurant.info.veg;
   };
 
-  
-  useEffect(()=>{
-<<<<<<< HEAD
-  //  console.log('setting filter res list form cutom hook')
-    setFilteredRestaurants(originalResList)
+  useEffect(() => {
+    //  console.log('setting filter res list form cutom hook')
+    setFilteredRestaurants(originalResList);
     //console.log(filteredRestaurants)
-  },[originalResList])
-=======
-    console.log("useEffect Called");
-    fetchData();
-  },[])
-  const fetchData = async ()=>{
-    const latNlong = "lat=22.572646&lng=88.36389500000001";
-    const data = await fetch(
-      `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?${latNlong}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
-      );
-    const json = await data.json();
-    const restaurant= json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
-    setOriginalResList(restaurant);
-    setFilteredRestaurants(restaurant);
-    console.log(restaurant);
-    console.log(json);
-  }
->>>>>>> origin/main
+  }, [originalResList]);
 
   useEffect(() => {
     searchRestaurants(searchTextToBody);
@@ -96,34 +80,33 @@ const Body = ({ searchTextToBody }) => {
     );
     setFilteredRestaurants(searchedRes);
   };
-  
-  
-  return  filteredRestaurants.length === 0 ? (
+
+  return filteredRestaurants.length === 0 ? (
     <Shimmer />
-  ) :
-      (
-        <div className='body'>
-          <Filter
-            onApplyFilter={applyFilter}
-            filters={[
-              { label: 'Top Rated', filterFunction: filterTopRated },
-              { label: 'Top Rated and Veg', filterFunction: filterTopRatedAndVeg },
-              { label: 'Top Rated and Non-Veg', filterFunction: filterTopRatedAndNonVeg },
-              { label: 'Veg Only', filterFunction: filterVegRestaurants },
-              { label: 'Non-Veg Only', filterFunction: filterNonVegRestaurants },
-            ]}
-          />
-          <SortBy onSortLowToHigh={sortLowToHigh} onSortHighToLow={sortHighToLow} />
-          
-          <div className="restaurant-list flex flex-wrap">
-            {filteredRestaurants.map((restaurant) => (
-              <RestaurantCard key={restaurant.info.id} {...restaurant} />
-            ))}
-          </div>
-        </div>
-      );
+  ) : (
+    <div className="body">
+      <Filter
+        onApplyFilter={applyFilter}
+        filters={[
+          { label: "Top Rated", filterFunction: filterTopRated },
+          { label: "Top Rated and Veg", filterFunction: filterTopRatedAndVeg },
+          {
+            label: "Top Rated and Non-Veg",
+            filterFunction: filterTopRatedAndNonVeg,
+          },
+          { label: "Veg Only", filterFunction: filterVegRestaurants },
+          { label: "Non-Veg Only", filterFunction: filterNonVegRestaurants },
+        ]}
+      />
+      <SortBy onSortLowToHigh={sortLowToHigh} onSortHighToLow={sortHighToLow} />
+
+      <div className="restaurant-list flex flex-wrap">
+        {filteredRestaurants.map((restaurant) => (
+          <RestaurantCard key={restaurant.info.id} {...restaurant} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Body;
-
-

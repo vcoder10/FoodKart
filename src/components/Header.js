@@ -1,32 +1,46 @@
-
-import React, { useState } from 'react';
-import Title from './Title';
-import Login from './Login';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import Title from "./Title";
+import Login from "./Login";
+import { Link, NavLink } from "react-router-dom";
+import UserContext from "../utils/UserContext";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = ({ onSearch }) => {
-  const [searchText, setSearchText] = useState('');
-  console.log("header rendered");
+  const [searchText, setSearchText] = useState("");
 
   const handleSearch = () => {
     onSearch(searchText);
   };
-
+  const { loggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
+  //console.log("showning cart");
+  //console.log(cartItems);
+  //console.log("from header to show cart");
   return (
     <div className="header">
       <Title />
       <div className="app-name">FoodKart</div>
 
-       <div className="nav-items">
+      <div className="nav-items">
         <ul>
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink
+              to="/about"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              About
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/contact">Contact</NavLink>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <NavLink to="/cart">Cart({cartItems.length})</NavLink>
           </li>
           {/*<li>
             <Link to="/cart">
@@ -34,7 +48,7 @@ const Header = ({ onSearch }) => {
             </Link>
           </li>*/}
         </ul>
-      </div> 
+      </div>
 
       {/* Search input and button */}
       <div className="search">
@@ -49,8 +63,10 @@ const Header = ({ onSearch }) => {
           Search
         </button>
       </div>
-
-      <Login />
+      <div className=" flex justify-center p-4 m-4">
+        <h4 className="m-4 text-cyan-100">{loggedInUser}</h4>
+      </div>
+      {/* <Login /> */}
     </div>
   );
 };

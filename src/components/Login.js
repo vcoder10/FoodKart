@@ -40,9 +40,9 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <div className="profile" onClick={toggleMenu}>
-        <img src={profilePhoto} alt="Profile" />
+    <div className="login ">
+      <div className="profile " onClick={toggleMenu}>
+        <img  src={profilePhoto} alt="Profile" />
         <div className={`toggle-button ${showMenu ? 'active' : ''}`}>&#9660;</div>
       </div>
       {showMenu && (

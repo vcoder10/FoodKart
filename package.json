@@ -2,9 +2,8 @@
   "name": "namaste-react-code",
   "version": "1.0.0",
   "description": "",
-  
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel index.html --port 3001",
     "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,11 +11,16 @@
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.10.3",
-    "process": "^0.11.10"
+    "postcss": "^8.4.32",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.6"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
+    "history": "^5.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.0.4",
     "react-router-dom": "^6.20.1"
   }
 }

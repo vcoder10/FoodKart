@@ -4,10 +4,15 @@ import Filter from './Filter'; // Import the new component
 import SortBy from './SortBy'; // Import the new component
 import Shimmer from './Shimmer';
 
+import useRestaurant  from '../utils/useRestaurant';
+
+
 const Body = ({ searchTextToBody }) => {
 
-  const [originalResList , setOriginalResList] = useState([]);
+  const originalResList  = useRestaurant();
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  
+
   
   const applyFilter = (filterFunction) => {
     const filtered = originalResList.filter(filterFunction);
@@ -36,15 +41,15 @@ const Body = ({ searchTextToBody }) => {
   };
 
   const filterTopRated = (restaurant) => {
-    return restaurant.info.avgRating > 3.2;
+    return restaurant.info.avgRating > 4.2;
   };
 
   const filterTopRatedAndVeg = (restaurant) => {
-    return restaurant.info.avgRating > 3.2 && restaurant.info.veg;
+    return restaurant.info.avgRating > 4.2 && restaurant.info.veg;
   };
 
   const filterTopRatedAndNonVeg = (restaurant) => {
-    return restaurant.info.avgRating > 3.2 && !restaurant.info.veg;
+    return restaurant.info.avgRating > 4.2 && !restaurant.info.veg;
   };
 
   const filterVegRestaurants = (restaurant) => {
@@ -55,23 +60,12 @@ const Body = ({ searchTextToBody }) => {
     return !restaurant.info.veg;
   };
 
+  
   useEffect(()=>{
-    console.log("useEffect Called");
-    fetchData();
-  },[])
-  const fetchData = async ()=>{
-    const latNlong = "lat=22.572646&lng=88.36389500000001";
-    const data = await fetch(
-      `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?${latNlong}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
-      );
-    const json = await data.json();
-    const restaurant= json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
-    setOriginalResList(restaurant);
-    setFilteredRestaurants(restaurant);
-    console.log(restaurant);
-    console.log(json);
-  }
+  //  console.log('setting filter res list form cutom hook')
+    setFilteredRestaurants(originalResList)
+    //console.log(filteredRestaurants)
+  },[originalResList])
 
   useEffect(() => {
     searchRestaurants(searchTextToBody);
@@ -83,6 +77,8 @@ const Body = ({ searchTextToBody }) => {
     );
     setFilteredRestaurants(searchedRes);
   };
+  
+  
   return  filteredRestaurants.length === 0 ? (
     <Shimmer />
   ) :
@@ -100,7 +96,7 @@ const Body = ({ searchTextToBody }) => {
           />
           <SortBy onSortLowToHigh={sortLowToHigh} onSortHighToLow={sortHighToLow} />
           
-          <div className="restaurant-list">
+          <div className="restaurant-list flex flex-wrap">
             {filteredRestaurants.map((restaurant) => (
               <RestaurantCard key={restaurant.info.id} {...restaurant} />
             ))}

@@ -1,8 +1,8 @@
 // import React from 'react';
 // import ReactDOM from 'react-dom/client';
 // import './style.css'
- 
- /* My Food App structure will look like this, 
+
+/* My Food App structure will look like this, 
             1) Header
                 - Logo
                 - Nav Items(right side)
@@ -23,7 +23,7 @@
 //     return (
 
 //         <div className='header'>
-            
+
 //          <img className='logo' src={"https://img.freepik.com/premium-vector/fast-food-delivery-logo-food-delivery-logo-design-template_664675-639.jpg"} />
 //         <div className='nav-items'>
 //             <ul>
@@ -33,7 +33,7 @@
 //                 <li>Cart</li>
 //             </ul>
 //         </div>
-        
+
 //         </div>
 //     )
 //  }
@@ -87,73 +87,88 @@
 //     )
 //  }
 
-
-
 //  const root= ReactDOM.createRoot(document.getElementById("abc"));
 
 // root.render(<AppLayout />);
 
-
-
-
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Header from './components/Header';
-import Body from './components/Body';
-import Footer from './components/Footer';
+import React, { Suspense, lazy, useEffect, useState } from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
 //import Login from './components/Login';
-import Contact from './components/Contact';
-import About from './components/About';
-//import Error from './components/Error';
+import Contact from "./components/Contact";
+import About from "./components/About";
+import Error from "./components/Error";
+import UserContext from "./utils/UserContext";
+import useOnlineStatus from "./utils/useOnlineStatus";
+import ShimmerMenu from "./components/ShimmerMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 
 const App = () => {
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
+  const isOnline = useOnlineStatus();
+
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    // call api to get userName
+    const data = {
+      name: "vikram",
+    };
+    setUserName(data.name);
+  }, []);
 
   const searchRestaurants = (text) => {
     setSearchText(text);
   };
-
+  if (!isOnline)
+    return (
+      <p style={{ color: "red" }}>
+        You are offline. Please check your internet connection.
+      </p>
+    );
   return (
-    <Router>
-    <Header onSearch={searchRestaurants} />
-    <Routes>
-      <Route
-       exact path="/" 
-       element={<Body searchTextToBody={searchText} />}
-       
-      />
-      <Route
-       exact path="/about" 
-       element={<About />}
-      />
-      <Route
-       exact path="/contact" 
-       element={<Contact />}
-      />
-    </Routes>
-      
-    <Footer />
-  </Router>
-    
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <Router>
+          <Header onSearch={searchRestaurants} />
+
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={<Body searchTextToBody={searchText} />}
+            />
+
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/*" element={<Error />} />
+            <Route
+              exact
+              path="/restaurant/:resId"
+              element={
+                <Suspense fallback={<h1>loading data....</h1>}>
+                  <RestaurantMenu />
+                </Suspense>
+              }
+            />
+          </Routes>
+
+          <Footer />
+        </Router>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // router code
 /**
@@ -182,7 +197,7 @@ root.render(<App />);
   );
  */
 
-  /**
+/**
    * simple div
    * <div>
       <Header onSearch={searchRestaurants} />
@@ -190,7 +205,3 @@ root.render(<App />);
       <Footer />
     </div>
    */
-
-
-
-

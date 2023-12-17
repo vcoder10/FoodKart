@@ -62,10 +62,29 @@ const Body = ({ searchTextToBody }) => {
 
   
   useEffect(()=>{
+<<<<<<< HEAD
   //  console.log('setting filter res list form cutom hook')
     setFilteredRestaurants(originalResList)
     //console.log(filteredRestaurants)
   },[originalResList])
+=======
+    console.log("useEffect Called");
+    fetchData();
+  },[])
+  const fetchData = async ()=>{
+    const latNlong = "lat=22.572646&lng=88.36389500000001";
+    const data = await fetch(
+      `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?${latNlong}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+      );
+    const json = await data.json();
+    const restaurant= json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+    setOriginalResList(restaurant);
+    setFilteredRestaurants(restaurant);
+    console.log(restaurant);
+    console.log(json);
+  }
+>>>>>>> origin/main
 
   useEffect(() => {
     searchRestaurants(searchTextToBody);

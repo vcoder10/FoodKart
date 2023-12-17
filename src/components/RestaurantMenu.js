@@ -2,14 +2,14 @@ import ShimmerMenu from "./ShimmerMenu";
 
 import { IMG_CDN_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
-import bittuRestaurantMenu from "../utils/bittuRestaurantMenu";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 import MenuItems from "./MenuItems";
 import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const resInfo = bittuRestaurantMenu(resId);
+  const resInfo = useRestaurantMenu(resId);
   const [showItems, setShowItems] = useState(true);
   const [showIndex, setShowIndex] = useState(0);
 

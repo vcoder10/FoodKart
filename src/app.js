@@ -103,7 +103,7 @@ import About from "./components/About";
 import Error from "./components/Error";
 import UserContext from "./utils/UserContext";
 import useOnlineStatus from "./utils/useOnlineStatus";
-import ShimmerMenu from "./components/ShimmerMenu";
+
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
@@ -196,12 +196,3 @@ root.render(<App />);
     </Router>
   );
  */
-
-/**
-   * simple div
-   * <div>
-      <Header onSearch={searchRestaurants} />
-      <Body searchTextToBody={searchText} />
-      <Footer />
-    </div>
-   */

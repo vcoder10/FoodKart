@@ -54,7 +54,14 @@
     cursor: pointer;
     
   }
+.login-main{
+  margin: auto;
+  padding: auto;
 
+  }
+  .login-text{
+    font-size: large;
+  }
   /*search*/
   .search{
     display: flex;

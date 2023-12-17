@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { IMG_CDN_URL } from "../utils/constants";
-import { addItem, addPrice } from "../utils/cartSlice";
+import { addItem } from "../utils/cartSlice";
 
 const MenuItems = ({ index, list, showItems, setShowIndex }) => {
   const handleCollaps = () => {

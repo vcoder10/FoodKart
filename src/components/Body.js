@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./ResturantCard";
-import Filter from "./Filter"; // Import the new component
-import SortBy from "./SortBy"; // Import the new component
+import Filter from "./Filter";
+import SortBy from "./SortBy";
 import Shimmer from "./Shimmer";
 
 import useRestaurant from "../utils/useRestaurant";
@@ -65,9 +65,7 @@ const Body = ({ searchTextToBody }) => {
   };
 
   useEffect(() => {
-    //  console.log('setting filter res list form cutom hook')
     setFilteredRestaurants(originalResList);
-    //console.log(filteredRestaurants)
   }, [originalResList]);
 
   useEffect(() => {
@@ -84,7 +82,7 @@ const Body = ({ searchTextToBody }) => {
   return filteredRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
+    <div className="body ">
       <Filter
         onApplyFilter={applyFilter}
         filters={[

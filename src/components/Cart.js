@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import "../components/layouts/cart.css";
+import "./cart.css";
 import { clearCart, removeItem } from "../utils/cartSlice";
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart);
@@ -7,15 +7,13 @@ const Cart = () => {
 
   const dispatch = useDispatch();
   const removeItemCart = (id) => {
-    //console.log("remove" + id);
     dispatch(removeItem(id));
   };
   const checkOut = () => {
-    alert("Ordered Successfully");
     dispatch(clearCart());
+    alert("Ordered Successfully");
   };
-  //   console.log(cartItems.totalPrice);
-  //   console.log(cartItems);
+
   if (cartItems.items.length === 0)
     return <h1 className="empty">"Cart is Empty"</h1>;
   return (

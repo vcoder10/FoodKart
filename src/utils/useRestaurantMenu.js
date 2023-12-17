@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { SWIGGY_MENU_API_URL } from "./constants";
 
-const bittuRestaurantMenu = (resId) => {
+const useRestaurantMenu = (resId) => {
   //console.log("hello from cutom hooks")
   const [resInfo, setResInfo] = useState(null);
 
@@ -19,4 +19,4 @@ const bittuRestaurantMenu = (resId) => {
   return resInfo;
 };
 
-export default bittuRestaurantMenu;
+export default useRestaurantMenu;

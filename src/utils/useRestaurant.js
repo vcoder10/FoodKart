@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { restaurants } from "./restaurantData";
 import { SWIGGY_API_URL } from "../utils/constants";
 const useRestaurant = () => {
   const [originalResList, setOriginalResList] = useState([]);
@@ -16,8 +16,8 @@ const useRestaurant = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     // console.log('from custom hook rs')
-    //console.log(restaurant)
-    setOriginalResList(restaurant);
+    //console.log(restaurant);
+    setOriginalResList(restaurant ? restaurant : restaurants);
 
     //setFilteredRestaurants(restaurant);
   };

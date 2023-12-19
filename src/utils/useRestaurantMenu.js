@@ -10,7 +10,7 @@ const useRestaurantMenu = (resId) => {
       const data = await fetch(SWIGGY_MENU_API_URL + resId);
       const jsonData = await data.json();
       //console.log("hello from inside cutom hooks")
-
+      console.log(jsonData);
       setResInfo(jsonData);
     };
     getresInfo();

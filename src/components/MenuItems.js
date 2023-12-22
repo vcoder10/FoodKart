@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { IMG_CDN_URL } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
-
+import React from "react";
 const MenuItems = ({ index, list, showItems, setShowIndex }) => {
   const handleCollaps = () => {
     showItems === true ? setShowIndex(0) : setShowIndex(1);
@@ -16,15 +16,15 @@ const MenuItems = ({ index, list, showItems, setShowIndex }) => {
       })
     );
   };
-
+  console.log(list);
   return (
     <div className="res-item-content">
       <div className="menu-title-wrap" onClick={handleCollaps}>
         <h3 className="menu-title">
-          {list.title} ({list.itemCards.length})
+          {list.title} ({list.itemCards.length}) hi
         </h3>
 
-        <span>{showItems === true ? "🔼" : "🔽"}</span>
+        <span>{showItems === true ? "➖" : "➕"}</span>
       </div>
       0
       {showItems && (

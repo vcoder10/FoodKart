@@ -14,6 +14,7 @@ const cartSlice = createSlice({
       //console.log("added");
       state.items.push(action.payload);
       state.totalPrice += action.payload.itemPrice;
+      console.log(state.totalPrice);
     },
     removeItem: (state, action) => {
       const removedItem = state.items.find(
@@ -26,6 +27,7 @@ const cartSlice = createSlice({
     },
     clearCart: (state) => {
       state.items.length = 0; // why not state=[]
+      state.totalPrice = 0;
     },
   },
 });

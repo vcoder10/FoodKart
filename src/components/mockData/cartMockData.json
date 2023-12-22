@@ -1,0 +1,122 @@
+{
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+    "title": "CHICKEN DIPSUMS",
+    "itemCards": [
+        {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                "info": {
+                    "id": "127132132",
+                    "name": "6 Chicken Dipsums & 6 Hot Wings",
+                    "category": "CHICKEN DIPSUMS",
+                    "description": "Save Rs. 48 on 6 Pcs of Chicken Dipsums with momo style chutney & 6 Pcs of Hot Wings",
+                    "imageId": "vomrt13bhewk73gq7t4z",
+                    "inStock": 1,
+                    "price": 44857,
+                    "variants": {},
+                    "variantsV2": {},
+                    "itemAttribute": {
+                        "vegClassifier": "NONVEG"
+                    },
+                    "ribbon": {},
+                    "type": "ITEM",
+                    "offerTags": [
+                        {
+                            "title": "40% OFF",
+                            "subTitle": "USE SWIGGYIT",
+                            "textColor": "#DB6742",
+                            "backgroundColor": "#FAE8E3"
+                        }
+                    ],
+                    "itemBadge": {},
+                    "badgesV2": {},
+                    "ratings": {
+                        "aggregatedRating": {
+                            "rating": "3.7",
+                            "ratingCount": "3 ratings",
+                            "ratingCountV2": "3"
+                        }
+                    }
+                },
+                "analytics": {},
+                "hideRestaurantDetails": true
+            }
+        },
+        {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                "info": {
+                    "id": "127132131",
+                    "name": "6 Chicken Dipsums Meal",
+                    "category": "CHICKEN DIPSUMS",
+                    "description": "Meal of new 6 Pcs of Dipsums with momo style chutney, a Medium Fries and a Pepsi PET 475ml",
+                    "imageId": "rbuh0sprnpuvyrol6qvb",
+                    "inStock": 1,
+                    "price": 37905,
+                    "variants": {},
+                    "variantsV2": {},
+                    "itemAttribute": {
+                        "vegClassifier": "NONVEG"
+                    },
+                    "ribbon": {},
+                    "type": "ITEM",
+                    "offerTags": [
+                        {
+                            "title": "40% OFF",
+                            "subTitle": "USE SWIGGYIT",
+                            "textColor": "#DB6742",
+                            "backgroundColor": "#FAE8E3"
+                        }
+                    ],
+                    "itemBadge": {},
+                    "badgesV2": {},
+                    "ratings": {
+                        "aggregatedRating": {}
+                    }
+                },
+                "analytics": {},
+                "hideRestaurantDetails": true
+            }
+        },
+        {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                "info": {
+                    "id": "127132130",
+                    "name": "Chicken Dipsums - 6 pcs",
+                    "category": "CHICKEN DIPSUMS",
+                    "description": "6pc Chicken tenders (boneless) served with momo style chutney [serves 1-2]",
+                    "imageId": "b3nlnk1cxw1vzvtfoovi",
+                    "inStock": 1,
+                    "price": 22857,
+                    "variants": {},
+                    "variantsV2": {},
+                    "itemAttribute": {
+                        "vegClassifier": "NONVEG"
+                    },
+                    "ribbon": {},
+                    "type": "ITEM",
+                    "offerTags": [
+                        {
+                            "title": "40% OFF",
+                            "subTitle": "USE SWIGGYIT",
+                            "textColor": "#DB6742",
+                            "backgroundColor": "#FAE8E3"
+                        }
+                    ],
+                    "itemBadge": {},
+                    "badgesV2": {},
+                    "ratings": {
+                        "aggregatedRating": {
+                            "rating": "4.3",
+                            "ratingCount": "14 ratings",
+                            "ratingCountV2": "14"
+                        }
+                    }
+                },
+                "analytics": {},
+                "hideRestaurantDetails": true
+            }
+        }
+    ]
+}

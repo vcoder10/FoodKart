@@ -43,14 +43,19 @@ const Cart = () => {
           <span>Rs.{delFee}</span>
         </div>
         <div className="cart-total">
-          <span> Amount Payable</span>
           <span>
-            Rs.
-            {(
-              cartItems.totalPrice +
-              delFee -
-              cartItems.totalPrice / 10
-            ).toFixed(2)}
+            {" "}
+            <h3>Amount Payable</h3>
+          </span>
+          <span>
+            <h3>
+              Rs.
+              {(
+                cartItems.totalPrice +
+                delFee -
+                cartItems.totalPrice / 10
+              ).toFixed(2)}
+            </h3>
           </span>
         </div>
         <button className="checkout-btn" onClick={checkOut}>
